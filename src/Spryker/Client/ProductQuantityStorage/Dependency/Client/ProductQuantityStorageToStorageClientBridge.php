@@ -7,7 +7,7 @@
 
 namespace Spryker\Client\ProductQuantityStorage\Dependency\Client;
 
-class ProductQuantityStorageToStorageBridge implements ProductQuantityStorageToStorageInterface
+class ProductQuantityStorageToStorageClientBridge implements ProductQuantityStorageToStorageClientInterface
 {
     /**
      * @var \Spryker\Client\Storage\StorageClientInterface
