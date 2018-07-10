@@ -18,7 +18,7 @@ use Spryker\Zed\ProductQuantity\Dependency\ProductQuantityEvents;
  * @method \Spryker\Zed\ProductQuantityStorage\Business\ProductQuantityStorageFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductQuantityStorage\Communication\ProductQuantityStorageCommunicationFactory getFactory()
  */
-class ProductQuantityEventResourcePlugin extends AbstractPlugin implements EventResourceRepositoryPluginInterface
+class ProductQuantityEventResourceRepositoryPlugin extends AbstractPlugin implements EventResourceRepositoryPluginInterface
 {
     /**
      * Specification:
