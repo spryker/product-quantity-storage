@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Client\ProductQuantityStorage\Plugin;
+namespace Spryker\Client\ProductQuantityStorage\Plugin\QuickOrder;
 
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\ItemValidationResponseTransfer;
