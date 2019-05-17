@@ -7,20 +7,21 @@
 
 namespace Spryker\Zed\ProductQuantityStorage\Communication\Plugin\Synchronization;
 
+use Generated\Shared\Transfer\FilterTransfer;
 use Generated\Shared\Transfer\SynchronizationDataTransfer;
 use Spryker\Shared\ProductQuantityStorage\ProductQuantityStorageConfig;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\SynchronizationExtension\Dependency\Plugin\SynchronizationDataRepositoryPluginInterface;
+use Spryker\Zed\SynchronizationExtension\Dependency\Plugin\SynchronizationDataBulkRepositoryPluginInterface;
 
 /**
- * @deprecated Use \Spryker\Zed\ProductQuantityStorage\Communication\Plugin\Synchronization\ProductQuantitySynchronizationDataBulkPlugin instead.
+ * Important Note: This plugin is only compatible with Synchronization version 1.4.0 or higher.
  *
  * @method \Spryker\Zed\ProductQuantityStorage\Persistence\ProductQuantityStorageRepositoryInterface getRepository()
  * @method \Spryker\Zed\ProductQuantityStorage\Business\ProductQuantityStorageFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductQuantityStorage\Communication\ProductQuantityStorageCommunicationFactory getFactory()
  * @method \Spryker\Zed\ProductQuantityStorage\ProductQuantityStorageConfig getConfig()
  */
-class ProductQuantitySynchronizationDataPlugin extends AbstractPlugin implements SynchronizationDataRepositoryPluginInterface
+class ProductQuantitySynchronizationDataBulkPlugin extends AbstractPlugin implements SynchronizationDataBulkRepositoryPluginInterface
 {
     /**
      * {@inheritdoc}
@@ -51,18 +52,18 @@ class ProductQuantitySynchronizationDataPlugin extends AbstractPlugin implements
      *
      * @api
      *
+     * @param int $offset
+     * @param int $limit
      * @param int[] $ids
      *
      * @return \Generated\Shared\Transfer\SynchronizationDataTransfer[]
      */
-    public function getData(array $ids = []): array
+    public function getData(int $offset, int $limit, array $ids = []): array
     {
         $synchronizationDataTransfers = [];
-        $productQuantityTransfers = $this->getRepository()->findProductQuantityStorageEntitiesByProductIds($ids);
+        $filterTransfer = $this->createFilterTransfer($offset, $limit);
 
-        if (empty($ids)) {
-            $productQuantityTransfers = $this->getRepository()->findAllProductQuantityStorageEntities();
-        }
+        $productQuantityTransfers = $this->getRepository()->findFilteredProductQuantityStorageEntities($filterTransfer, $ids);
 
         foreach ($productQuantityTransfers as $productQuantityTransfer) {
             $synchronizationDataTransfer = new SynchronizationDataTransfer();
@@ -108,5 +109,18 @@ class ProductQuantitySynchronizationDataPlugin extends AbstractPlugin implements
     public function getSynchronizationQueuePoolName(): ?string
     {
         return $this->getFactory()->getConfig()->getProductQuantitySynchronizationPoolName();
+    }
+
+    /**
+     * @param int $offset
+     * @param int $limit
+     *
+     * @return \Generated\Shared\Transfer\FilterTransfer
+     */
+    protected function createFilterTransfer(int $offset, int $limit): FilterTransfer
+    {
+        return (new FilterTransfer())
+            ->setOffset($offset)
+            ->setLimit($limit);
     }
 }
