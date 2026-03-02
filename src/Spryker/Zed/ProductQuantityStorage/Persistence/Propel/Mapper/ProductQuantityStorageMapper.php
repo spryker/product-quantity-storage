@@ -12,12 +12,6 @@ use Orm\Zed\ProductQuantityStorage\Persistence\SpyProductQuantityStorage;
 
 class ProductQuantityStorageMapper implements ProductQuantityStorageMapperInterface
 {
-    /**
-     * @param \Orm\Zed\ProductQuantityStorage\Persistence\SpyProductQuantityStorage $spyProductQuantityStorageEntity
-     * @param \Generated\Shared\Transfer\SpyProductQuantityStorageEntityTransfer $productQuantityStorageEntity
-     *
-     * @return \Orm\Zed\ProductQuantityStorage\Persistence\SpyProductQuantityStorage
-     */
     public function hydrateSpyProductQuantityStorageEntity(
         SpyProductQuantityStorage $spyProductQuantityStorageEntity,
         SpyProductQuantityStorageEntityTransfer $productQuantityStorageEntity

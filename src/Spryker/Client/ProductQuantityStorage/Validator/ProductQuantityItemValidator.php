@@ -59,10 +59,6 @@ class ProductQuantityItemValidator implements ProductQuantityItemValidatorInterf
      */
     protected $productQuantityResolver;
 
-    /**
-     * @param \Spryker\Client\ProductQuantityStorage\Storage\ProductQuantityStorageReaderInterface $productQuantityStorageReader
-     * @param \Spryker\Client\ProductQuantityStorage\Resolver\ProductQuantityResolverInterface $productQuantityResolver
-     */
     public function __construct(
         ProductQuantityStorageReaderInterface $productQuantityStorageReader,
         ProductQuantityResolverInterface $productQuantityResolver
@@ -71,11 +67,6 @@ class ProductQuantityItemValidator implements ProductQuantityItemValidatorInterf
         $this->productQuantityResolver = $productQuantityResolver;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemValidationTransfer $itemValidationTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemValidationTransfer
-     */
     public function validate(ItemValidationTransfer $itemValidationTransfer): ItemValidationTransfer
     {
         $itemValidationTransfer->requireItem();

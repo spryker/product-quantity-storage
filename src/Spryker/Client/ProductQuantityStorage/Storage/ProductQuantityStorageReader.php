@@ -26,10 +26,6 @@ class ProductQuantityStorageReader implements ProductQuantityStorageReaderInterf
      */
     protected $synchronizationService;
 
-    /**
-     * @param \Spryker\Client\ProductQuantityStorage\Dependency\Client\ProductQuantityStorageToStorageClientInterface $storageClient
-     * @param \Spryker\Client\ProductQuantityStorage\Dependency\Service\ProductQuantityStorageToSynchronizationServiceInterface $synchronizationService
-     */
     public function __construct(
         ProductQuantityStorageToStorageClientInterface $storageClient,
         ProductQuantityStorageToSynchronizationServiceInterface $synchronizationService
@@ -38,11 +34,6 @@ class ProductQuantityStorageReader implements ProductQuantityStorageReaderInterf
         $this->synchronizationService = $synchronizationService;
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductQuantityStorageTransfer|null
-     */
     public function findProductQuantityStorage(int $idProduct): ?ProductQuantityStorageTransfer
     {
         $key = $this->generateKey($idProduct);
@@ -55,11 +46,6 @@ class ProductQuantityStorageReader implements ProductQuantityStorageReaderInterf
         return $this->mapToProductQuantityStorageTransfer($productQuantityStorageData);
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductQuantityTransfer|null
-     */
     public function findProductQuantityStorageMappedToProductQuantityTransfer(int $idProduct): ?ProductQuantityTransfer
     {
         $key = $this->generateKey($idProduct);
@@ -72,33 +58,18 @@ class ProductQuantityStorageReader implements ProductQuantityStorageReaderInterf
         return $this->mapToProductQuantityTransfer($productQuantityStorageData);
     }
 
-    /**
-     * @param array $productQuantityStorageData
-     *
-     * @return \Generated\Shared\Transfer\ProductQuantityStorageTransfer
-     */
     protected function mapToProductQuantityStorageTransfer(array $productQuantityStorageData): ProductQuantityStorageTransfer
     {
         return (new ProductQuantityStorageTransfer())
             ->fromArray($productQuantityStorageData, true);
     }
 
-    /**
-     * @param array $productQuantityData
-     *
-     * @return \Generated\Shared\Transfer\ProductQuantityTransfer
-     */
     protected function mapToProductQuantityTransfer(array $productQuantityData): ProductQuantityTransfer
     {
         return (new ProductQuantityTransfer())
             ->fromArray($productQuantityData, true);
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return string
-     */
     protected function generateKey(int $idProduct): string
     {
         $synchronizationDataTransfer = (new SynchronizationDataTransfer())

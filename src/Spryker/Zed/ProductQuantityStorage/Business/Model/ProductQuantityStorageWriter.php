@@ -31,11 +31,6 @@ class ProductQuantityStorageWriter implements ProductQuantityStorageWriterInterf
      */
     protected $productQuantityFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductQuantityStorage\Persistence\ProductQuantityStorageEntityManagerInterface $productQuantityStorageEntityManager
-     * @param \Spryker\Zed\ProductQuantityStorage\Persistence\ProductQuantityStorageRepositoryInterface $productQuantityStorageRepository
-     * @param \Spryker\Zed\ProductQuantityStorage\Dependency\Facade\ProductQuantityStorageToProductQuantityFacadeInterface $productQuantityFacade
-     */
     public function __construct(
         ProductQuantityStorageEntityManagerInterface $productQuantityStorageEntityManager,
         ProductQuantityStorageRepositoryInterface $productQuantityStorageRepository,
@@ -68,12 +63,6 @@ class ProductQuantityStorageWriter implements ProductQuantityStorageWriterInterf
         $this->deleteStorageEntities($mappedProductQuantityStorageEntities);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyProductQuantityStorageEntityTransfer $storageEntity
-     * @param \Generated\Shared\Transfer\ProductQuantityTransfer $productQuantityTransfer
-     *
-     * @return void
-     */
     protected function saveStorageEntity(
         SpyProductQuantityStorageEntityTransfer $storageEntity,
         ProductQuantityTransfer $productQuantityTransfer
@@ -100,11 +89,6 @@ class ProductQuantityStorageWriter implements ProductQuantityStorageWriterInterf
         return new SpyProductQuantityStorageEntityTransfer();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductQuantityTransfer $productQuantityTransfer
-     *
-     * @return array
-     */
     protected function getStorageEntityData(ProductQuantityTransfer $productQuantityTransfer): array
     {
         return (new ProductQuantityStorageTransfer())

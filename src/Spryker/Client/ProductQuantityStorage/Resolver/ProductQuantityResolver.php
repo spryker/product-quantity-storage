@@ -22,10 +22,6 @@ class ProductQuantityResolver implements ProductQuantityResolverInterface
      */
     protected $productQuantityService;
 
-    /**
-     * @param \Spryker\Client\ProductQuantityStorage\Storage\ProductQuantityStorageReaderInterface $productQuantityStorageReader
-     * @param \Spryker\Client\ProductQuantityStorage\Dependency\Service\ProductQuantityStorageToProductQuantityServiceInterface $productQuantityService
-     */
     public function __construct(
         ProductQuantityStorageReaderInterface $productQuantityStorageReader,
         ProductQuantityStorageToProductQuantityServiceInterface $productQuantityService
@@ -34,12 +30,6 @@ class ProductQuantityResolver implements ProductQuantityResolverInterface
         $this->productQuantityService = $productQuantityService;
     }
 
-    /**
-     * @param int $idProduct
-     * @param int $quantity
-     *
-     * @return int
-     */
     public function getNearestQuantity(int $idProduct, int $quantity): int
     {
         $productQuantityTransfer = $this->productQuantityStorageReader->findProductQuantityStorageMappedToProductQuantityTransfer($idProduct);

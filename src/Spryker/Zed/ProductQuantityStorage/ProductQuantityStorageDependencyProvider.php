@@ -33,11 +33,6 @@ class ProductQuantityStorageDependencyProvider extends AbstractBundleDependencyP
      */
     public const PROPEL_QUERY_PRODUCT_QUANTITY = 'PROPEL_QUERY_PRODUCT_QUANTITY';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -47,11 +42,6 @@ class ProductQuantityStorageDependencyProvider extends AbstractBundleDependencyP
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = parent::provideCommunicationLayerDependencies($container);
@@ -61,11 +51,6 @@ class ProductQuantityStorageDependencyProvider extends AbstractBundleDependencyP
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addEventBehaviorFacade(Container $container): Container
     {
         $container->set(static::FACADE_EVENT_BEHAVIOR, function (Container $container) {
@@ -75,11 +60,6 @@ class ProductQuantityStorageDependencyProvider extends AbstractBundleDependencyP
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductQuantityFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT_QUANTITY, function (Container $container) {
@@ -89,11 +69,6 @@ class ProductQuantityStorageDependencyProvider extends AbstractBundleDependencyP
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function providePersistenceLayerDependencies(Container $container): Container
     {
         $container = parent::providePersistenceLayerDependencies($container);

@@ -15,11 +15,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class ProductQuantityStorageEntityManager extends AbstractEntityManager implements ProductQuantityStorageEntityManagerInterface
 {
-    /**
-     * @param int $idProductQuantityStorage
-     *
-     * @return void
-     */
     public function deleteProductQuantityStorage(int $idProductQuantityStorage): void
     {
         $spyProductQuantityStorageEntity = $this->getFactory()
@@ -30,11 +25,6 @@ class ProductQuantityStorageEntityManager extends AbstractEntityManager implemen
         $spyProductQuantityStorageEntity->delete();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyProductQuantityStorageEntityTransfer $productQuantityStorageEntity
-     *
-     * @return void
-     */
     public function saveProductQuantityStorageEntity(SpyProductQuantityStorageEntityTransfer $productQuantityStorageEntity): void
     {
         $productQuantityStorageEntity->requireFkProduct();

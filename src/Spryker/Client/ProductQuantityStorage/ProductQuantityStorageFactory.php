@@ -20,9 +20,6 @@ use Spryker\Client\ProductQuantityStorage\Validator\ProductQuantityItemValidator
 
 class ProductQuantityStorageFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\ProductQuantityStorage\Storage\ProductQuantityStorageReaderInterface
-     */
     public function createProductQuantityStorageReader(): ProductQuantityStorageReaderInterface
     {
         return new ProductQuantityStorageReader(
@@ -31,9 +28,6 @@ class ProductQuantityStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductQuantityStorage\Validator\ProductQuantityItemValidatorInterface
-     */
     public function createProductQuantityItemTransferValidator(): ProductQuantityItemValidatorInterface
     {
         return new ProductQuantityItemValidator(
@@ -42,25 +36,16 @@ class ProductQuantityStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductQuantityStorage\Dependency\Client\ProductQuantityStorageToStorageClientInterface
-     */
     public function getStorage(): ProductQuantityStorageToStorageClientInterface
     {
         return $this->getProvidedDependency(ProductQuantityStorageDependencyProvider::CLIENT_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Client\ProductQuantityStorage\Dependency\Service\ProductQuantityStorageToSynchronizationServiceInterface
-     */
     public function getSynchronizationService(): ProductQuantityStorageToSynchronizationServiceInterface
     {
         return $this->getProvidedDependency(ProductQuantityStorageDependencyProvider::SERVICE_SYNCHRONIZATION);
     }
 
-    /**
-     * @return \Spryker\Client\ProductQuantityStorage\Resolver\ProductQuantityResolverInterface
-     */
     public function createProductQuantityResolver(): ProductQuantityResolverInterface
     {
         return new ProductQuantityResolver(
@@ -69,9 +54,6 @@ class ProductQuantityStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductQuantityStorage\Dependency\Service\ProductQuantityStorageToProductQuantityServiceInterface
-     */
     public function getProductQuantityService(): ProductQuantityStorageToProductQuantityServiceInterface
     {
         return $this->getProvidedDependency(ProductQuantityStorageDependencyProvider::SERVICE_PRODUCT_QUANTITY);

@@ -21,25 +21,16 @@ use Spryker\Zed\ProductQuantityStorage\ProductQuantityStorageDependencyProvider;
  */
 class ProductQuantityStoragePersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\ProductQuantityStorage\Persistence\SpyProductQuantityStorageQuery
-     */
     public function createProductQuantityStorageQuery(): SpyProductQuantityStorageQuery
     {
         return SpyProductQuantityStorageQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductQuantityStorage\Persistence\Propel\Mapper\ProductQuantityStorageMapperInterface
-     */
     public function createProductQuantityStorageMapper(): ProductQuantityStorageMapperInterface
     {
         return new ProductQuantityStorageMapper();
     }
 
-    /**
-     * @return \Orm\Zed\ProductQuantity\Persistence\SpyProductQuantityQuery
-     */
     public function getProductQuantityQuery(): SpyProductQuantityQuery
     {
         return $this->getProvidedDependency(ProductQuantityStorageDependencyProvider::PROPEL_QUERY_PRODUCT_QUANTITY);

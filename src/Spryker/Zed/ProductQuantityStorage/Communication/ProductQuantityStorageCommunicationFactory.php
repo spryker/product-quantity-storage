@@ -19,9 +19,6 @@ use Spryker\Zed\ProductQuantityStorage\ProductQuantityStorageDependencyProvider;
  */
 class ProductQuantityStorageCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductQuantityStorage\Dependency\Facade\ProductQuantityStorageToEventBehaviorFacadeInterface
-     */
     public function getEventBehaviorFacade(): ProductQuantityStorageToEventBehaviorFacadeInterface
     {
         return $this->getProvidedDependency(ProductQuantityStorageDependencyProvider::FACADE_EVENT_BEHAVIOR);

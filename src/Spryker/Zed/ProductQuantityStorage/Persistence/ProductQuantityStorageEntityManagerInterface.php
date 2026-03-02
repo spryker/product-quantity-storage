@@ -11,17 +11,7 @@ use Generated\Shared\Transfer\SpyProductQuantityStorageEntityTransfer;
 
 interface ProductQuantityStorageEntityManagerInterface
 {
-    /**
-     * @param int $idProductQuantityStorage
-     *
-     * @return void
-     */
     public function deleteProductQuantityStorage(int $idProductQuantityStorage): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyProductQuantityStorageEntityTransfer $productQuantityStorageEntity
-     *
-     * @return void
-     */
     public function saveProductQuantityStorageEntity(SpyProductQuantityStorageEntityTransfer $productQuantityStorageEntity): void;
 }

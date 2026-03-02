@@ -112,12 +112,6 @@ class ProductQuantitySynchronizationDataBulkPlugin extends AbstractPlugin implem
         return $this->getFactory()->getConfig()->getProductQuantitySynchronizationPoolName();
     }
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return \Generated\Shared\Transfer\FilterTransfer
-     */
     protected function createFilterTransfer(int $offset, int $limit): FilterTransfer
     {
         return (new FilterTransfer())

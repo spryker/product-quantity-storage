@@ -9,11 +9,5 @@ namespace Spryker\Client\ProductQuantityStorage\Resolver;
 
 interface ProductQuantityResolverInterface
 {
-    /**
-     * @param int $idProduct
-     * @param int $quantity
-     *
-     * @return int
-     */
     public function getNearestQuantity(int $idProduct, int $quantity): int;
 }

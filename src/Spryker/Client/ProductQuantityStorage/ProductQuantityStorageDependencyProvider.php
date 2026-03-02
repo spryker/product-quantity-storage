@@ -31,11 +31,6 @@ class ProductQuantityStorageDependencyProvider extends AbstractDependencyProvide
      */
     public const SERVICE_PRODUCT_QUANTITY = 'SERVICE_PRODUCT_QUANTITY';
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     public function provideServiceLayerDependencies(Container $container): Container
     {
         $container = $this->addStorageClient($container);
@@ -45,11 +40,6 @@ class ProductQuantityStorageDependencyProvider extends AbstractDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_STORAGE, function (Container $container) {
@@ -59,11 +49,6 @@ class ProductQuantityStorageDependencyProvider extends AbstractDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addSynchronizationService(Container $container): Container
     {
         $container->set(static::SERVICE_SYNCHRONIZATION, function (Container $container) {
@@ -73,11 +58,6 @@ class ProductQuantityStorageDependencyProvider extends AbstractDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductQuantityService(Container $container): Container
     {
         $container->set(static::SERVICE_PRODUCT_QUANTITY, function (Container $container): ProductQuantityStorageToProductQuantityServiceInterface {
