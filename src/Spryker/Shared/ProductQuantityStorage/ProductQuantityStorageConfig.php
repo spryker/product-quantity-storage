@@ -40,4 +40,14 @@ class ProductQuantityStorageConfig extends AbstractBundleConfig
      * @var string
      */
     public const PRODUCT_QUANTITY_RESOURCE_NAME = 'product_quantity';
+
+    /**
+     * Specification:
+     * - Queue name used for product quantity publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_PRODUCT_QUANTITY_QUEUE = 'publish.product_quantity';
 }
